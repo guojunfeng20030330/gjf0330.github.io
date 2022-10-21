@@ -1,0 +1,35 @@
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <title>实现20以内的加减法运算</title>
+    <style type="text/css">
+     body{margin:0 auto;width:600px;}
+     h1{font-size:3em;text-align:center;}
+     p{font-size:1.5em;}
+     span{color:blue;font-size:2em;}
+     input{font-size:2em;margin:1em;}
+    </style>
+   </head>
+   <body>
+    <span id="span">
+      实现20以内的加减法运算
+    </span>
+    <input id="a" type="text" value="0">
+    <input id="b" type="text" value="0">
+    <input id="c" type="text" value="计算">
+    <script>
+      document.querySelector("input#c").onclick=ikun;
+      function ikun(){
+        var num1=document.querySelector("input#a").value;
+        num1=parseInt(num1);
+        var num2=document.querySelector("input#b").value;
+        num2=parseInt(num2);
+      if(num1+num2>20){
+        alert("这不是20以内的加减法！")
+      }
+      else{
+        document.querySelector("span#span").textContent="答案为："+(num1+num2);
+      }
+      }
+    </script>
+  </body>
+  </html>
