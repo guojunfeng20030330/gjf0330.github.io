@@ -10,12 +10,13 @@
     </style>
    </head>
    <body>
-    <span id="span">
-      实现20以内的加减法运算
+    <span>
+      实现10000以内的乘法运算
     </span>
     <input id="a" type="text" value="0">
     <input id="b" type="text" value="0">
-    <input id="c" type="text" value="计算">
+    <input id="c" type="text" value="计算"></br>
+    <span id="span"></span>
     <script>
       document.querySelector("input#c").onclick=ikun;
       function ikun(){
@@ -23,11 +24,11 @@
         num1=parseInt(num1);
         var num2=document.querySelector("input#b").value;
         num2=parseInt(num2);
-      if(num1+num2>20){
-        alert("这不是20以内的加减法！")
+      if(num1*num2>10000){
+          document.querySelector("span#span\n").textContent="这不是10000的乘法运算！";
       }
       else{
-        document.querySelector("span#span").textContent="答案为："+(num1+num2);
+        document.querySelector("span#span\n").textContent="答案为："+(num1*num2);
       }
       }
     </script>
