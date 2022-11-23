@@ -1,34 +1,223 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
- <head>
+<head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>小学一年级算术训练APP（20以内）</title>
+    <title>小学生数学运算题</title>
     <style>
-      body{
-	   font-size: 30px ;
-	  }
-	  input{
-	   font-size: 1em ;
-	  }
-      input[button]{
-	   margin-right: 1em;
-	  }
+       body{
+           color: black;
+       }
+       h4{
+           text-align: center;
+       }
+       .box{
+           height:400px;
+           width:800px;
+           border:1px solid red;
+           background-color: #3cadeb;
+           margin:100px;
+       }
+       .box1,.box2,.boxMark,.equals,.boxQuestion{
+           height:60px;
+           width:120px;
+           border-radius:60px;
+           display: inline-block;
+           text-align: center;
+           background-color:white;
+           margin:10px;
+           line-height: 60px;
+           font-size: 40px;
+       }
+        .answer{
+            text-align: left;
+            margin-left: 50px;
+        }
+        input[type=button]{
+            border-style: none;
+            border-radius: 40px;
+            height:60px;
+            width:150px;
+            font-size: 40px;
+            background: white;
+            margin:20px;
+        }
+       input[type="button"]:hover {
+           background-color:red;
+       }
+        #btn1,#btn2,#btn3,#btn4{
+            font-size: 30px;
+        }
     </style>
 </head>
 <body>
-  <h1>hello</h1> 
-  <div id = 'question'>
-    <input id = "opNum1" type = "text" readonly> 
-       <span id="op"> + </span> 
-    <input id = "opNum2" type = "text" readonly> 
- </div>
- <div id = 'answer'>
-   A. <input type="button" value="20" id = "answerA">
-   B. <input type="button" value="21" id = "answerB">
-   C. <input type="button" value="22" id = "answerC">
-   D. <input type="button" value="23" id = "answerD">
- </div> 
- </body>
+<!--用一个div标签包含5个div标签，实现两个数之间的运算-->
+<div class="box">
+    <h4>小学生数学运算题</h4>
+    <div class="box1"></div>
+    <div class="boxMark"></div>
+    <div class="box2"></div>
+    <div class="equals">=</div>
+    <div class="boxQuestion">?</div>
+<!--用一个div标签包含5个input标签，从而实现4个选项和刷新题目的功能-->
+    <div class="answer">
+        <input type="button" id="btn1" value="A.">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="button" id="btn2" value="B."/><br/>
+        <input type="button" id="btn3" value="C."/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="button" id="btn4" value="D."/>
+    </div>
+</div>
+<script>
+    //创建三个随机数random1，random2，random3，其中random1和random3是随机生成的两个数，
+    // 而random2则是运用switch方法实现随机生成运算符号
+
+    let random=0;
+window.onload=function a() {
+        let random1 = Math.floor(Math.random() * 100 + 1);
+        let random2 = Math.floor(Math.random() * 4 + 1);
+        let random3 = Math.floor(Math.random() * 100 + 1);
+        let box1 = document.querySelector('.box1');
+        let box2 = document.querySelector('.box2');
+        box1.innerHTML = String(random1);
+        box2.innerHTML = String(random3);let realnum;
+        //正确的选择项
+        random = Math.floor(Math.random() * 4 + 1);
+
+        switch (random2) {
+            case 1: {
+                //确认运算符号
+                let boxMark1 = document.querySelector('.boxMark');
+                boxMark1.innerHTML = '+';
+                //将正确答案随机放在四个选项中
+                realnum = document.getElementById('btn' + random);
+                realnum.value += (random1 + random3);
+                //将其他选项补足
+                let num = [];
+                for (let i = 1; i <= 4; i++) {
+                    if (i != random) {
+                        num[i] = document.getElementById('btn' + i);
+                        document.getElementById('btn' + i).value += Math.floor(Math.random() * 1000);
+                    } else {
+                        continue;
+                    }
+                }
+                //选择正确
+                realnum.addEventListener('click', function () {
+                    alert('恭喜你，答对了!!!');
+                    location.reload();
+                });
+                //选择错误
+                for (let i = 1; i <= 4; i++) {
+                    if (i != random) {
+                        document.getElementById('btn' + i).addEventListener('click', function () {
+                            alert('不好意思，你答错了。');
+                        });
+                    }
+                }
+                break;
+            }
+            case 2: {
+                //确认运算符号
+                let boxMark2 = document.querySelector('.boxMark');
+                boxMark2.innerHTML = '－';
+                //将正确答案随机放在四个选项中
+                realnum = document.getElementById('btn' + random);
+                realnum.value += (random1 - random3);
+                //将其他选项补足
+                let num = [];
+                for (let i = 1; i <= 4; i++) {
+                    if (i != random) {
+                        num[i] = document.getElementById('btn' + i);
+                        document.getElementById('btn' + i).value += Math.floor(Math.random() * 1000);
+                    } else {
+                        continue;
+                    }
+                }
+                realnum.addEventListener('click', function () {
+                    alert('恭喜你，答对了!!!');
+                    location.reload();
+                });
+                //选择错误
+                for (let i = 1; i <= 4; i++) {
+                    if (i != random) {
+                        document.getElementById('btn' + i).addEventListener('click', function () {
+                            alert('不好意思，你答错了。');
+                        });
+                    }
+                }
+                break;
+            }
+            case 3: {
+                //确认运算符号
+                let boxMark3 = document.querySelector('.boxMark');
+                boxMark3.innerHTML = '×';
+                //将正确答案随机放在四个选项中
+                realnum = document.getElementById('btn' + random);
+                realnum.value += (random1 * random3);
+                //将其他选项补足
+                let num = [];
+                for (let i = 1; i <= 4; i++) {
+                    if (i != random) {
+                        num[i] = document.getElementById('btn' + i);
+                        document.getElementById('btn' + i).value += Math.floor(Math.random() * 1000);
+                    } else {
+                        continue;
+                    }
+                }
+                realnum.addEventListener('click', function () {
+                    alert('恭喜你，答对了!!!');
+                    location.reload();
+                });
+                //选择错误
+                for (let i = 1; i <= 4; i++) {
+                    if (i != random) {
+                        document.getElementById('btn' + i).addEventListener('click', function () {
+                            alert('不好意思，你答错了。');
+                        });
+                    }
+                }
+                break;
+            }
+            case 4: {
+                //确认运算符号
+                let boxMark4 = document.querySelector('.boxMark');
+                boxMark4.innerHTML = '÷';
+                //将正确答案随机放在四个选项中
+                realnum = document.getElementById('btn' + random);
+                realnum.value += (random1 / random3).toFixed(4);
+                //将其他选项补足
+                let num = [];
+                for (let i = 1; i <= 4; i++) {
+                    if (i != random) {
+                        num[i] = document.getElementById('btn' + i);
+                        document.getElementById('btn' + i).value += Math.floor(Math.random() * 1000);
+                    } else {
+                        continue;
+                    }
+                }
+
+                for (let i = 1; i <= 4; i++) {
+                    if (i != random) {
+                        document.getElementById('btn' + i).addEventListener('click', function () {
+                            alert('不好意思，你答错了。');
+                        });
+                    }else{
+                        realnum.addEventListener('click', function () {
+                            alert('恭喜你，答对了!!!');
+                            location.reload();
+                        });
+                    }
+
+                }
+                break;
+            }
+            default:
+                break;
+        }
+
+}
+
+</script>
+</body>
 </html>
