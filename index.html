@@ -12,18 +12,39 @@
    background-image: url("5.jpg");
    background-repeat: no-repeat;
   }
+  .box{
+   text-align: center;
+  }
+  .box1{
+   display: inline-block;
+   text-align: center;
+   font-size: 50px;
+  }
+  .box2{
+   display: inline-block;
+   position:absolute;
+   top:5%;
+   left:90%;
+  }
+  .box3{
+   display: inline-block;
+   position: absolute;
+   top:200px;
+   left: 18%;
+  }
+  #a{
+   text-align: center;
+  }
  </style>
 </head>
 <body>
- <p><h1 align="center"><font color="black" size="50" >首页</font></h1></p>
- <div align="center">首页二维码</div>
- <p align="center"><img src="qrCode.jpg" width="100" height="100"/></p>
-<table border="1" cellspacing="0" align="center" width="400" height="50">
- <tr >
-  <th><a href="alltest.html" target="abc">查看作业</a></th>
- </tr>
-</table>
-</br>
-<div align="center"><iframe  width="400" height="500" name="abc" ></iframe></div>
+<div class="box">
+ <div class="box1">首页</div>
+ <div class="box2"><img src="qrCode.png" width="100" height="100"/><br><div id="a">二维码</div></div>
+ <div class="box3">
+  <div><a href="test04.html" target="a">期末作业</a></div>
+  <div><iframe width="800" height="500" name="a" ></iframe></div>
+ </div>
+</div>
 </body>
 </html>
