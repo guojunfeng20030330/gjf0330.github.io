@@ -9,48 +9,74 @@
  <title>Welcome come to my github website!</title>
  <style>
   body{
-   background-image: url("5.jpg");
-   background-repeat: no-repeat;
+   margin: 0;
   }
-  .box{
+  .all{
+   width:100%;
+   height:600px;
+   border: 2px solid black;
+   position:relative;
+   left:0;
+  }
+  .top{
+   width:100%;
+   height:20%;
+  }
+  .title{
+   width:90%;
+   height:10%;
+   font-size: 30px;
    text-align: center;
   }
-  .box1{
-   display: inline-block;
-   text-align: center;
-   font-size: 50px;
-  }
-  .box2{
-   display: inline-block;
+  .img1{
+   width:100px;
+   height:100px;
    position:absolute;
-   top:5%;
-   left:90%;
+   top:0;
+   left:89%;
   }
-  .box3{
+  .center{
+   height: 50px;
+   width:60%;
    display: inline-block;
-   position: absolute;
-   top:200px;
-   left: 18%;
-  }
-  #a{
-   text-align: center;
+   position:relative;
+   left: 15%;
+   top:40%;
   }
   iframe{
-   width: 800px;
-   height:450px;
-   text-align: center;
-   scrolling:no;
+   width: 100%;
+   height:480px;
+   position:relative;
+  }
+  th{
+   border-collapse: unset;
+   border: 2px solid black;
+   height:40px;
+   width:150px;
+  }
+  a{
+   text-decoration: none;
   }
  </style>
 </head>
 <body>
-<div class="box">
- <div class="box1">首页</div><br>
- <div class="box2"><img src="qrCode.png" width="100" height="100"/><br><div id="a">二维码</div></div>
- <div class="box3">
-  <div><a href="test04.html" target="a">期末作业</a></div>
-  <div><iframe name="a"></iframe></div>
+<div class="all">
+ <div class="top">
+  <div class="title">首页</div>
+  <div class="img1"><img src="qrCode.png" width="100px" height="100px" border="5px"></div>
+  <div class="center">
+   <table class="box" cellspacing="0">
+    <tr>
+     <th><a href="test01.html" target="a">第一次作业</a></th>
+     <th><a href="test12.html" target="a">第二次作业</a></th>
+     <th><a href="test07.html" target="a">第三次作业</a></th>
+     <th><a href="test04.html" target="a">第四次作业</a></th>
+     <th><a href="" target="a">期末作业</a></th>
+    </tr>
+   </table>
+  </div>
  </div>
+ <div class="box"><iframe src="1.jpg" name="a"></iframe></div>
 </div>
 </body>
 </html>
